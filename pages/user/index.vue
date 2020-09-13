@@ -4,15 +4,20 @@
   </div>
 </template>
 
-<script>
-import UserData from '@/components/UserData'
+<script lang="ts">
+import UserData from '~/components/UserData.vue'
+
+interface User {
+  firstName: string
+  lastName: string
+}
 
 export default {
   components: {
     UserData
   },
 
-  data() {
+  data(): { user: User } {
     return {
       user: {
         firstName: 'makoto',
