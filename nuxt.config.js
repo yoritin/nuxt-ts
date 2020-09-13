@@ -37,7 +37,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['@/plugins/composition-api'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -46,7 +46,21 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: [
+    ['@nuxt/typescript-build', {
+      typeCheck: true,
+      ignoreNotFoundWarnings: true
+    }],
+    ['@nuxtjs/vuetify']
+  ],
+  loaders: {
+    ts: {
+      silent: true
+    },
+    tsx: {
+      silent: true
+    }
+  },
   /*
    ** Nuxt.js modules
    */
@@ -58,7 +72,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
