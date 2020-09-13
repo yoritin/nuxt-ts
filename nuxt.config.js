@@ -46,7 +46,21 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: [
+    ['@nuxt/typescript-build', {
+      typeCheck: true,
+      ignoreNotFoundWarnings: true
+    }],
+    ['@nuxtjs/vuetify']
+  ],
+  loaders: {
+    ts: {
+      silent: true
+    },
+    tsx: {
+      silent: true
+    }
+  },
   /*
    ** Nuxt.js modules
    */

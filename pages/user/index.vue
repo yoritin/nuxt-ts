@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UserData />
+    <UserData :user="user" />
   </div>
 </template>
 
@@ -10,6 +10,15 @@ import UserData from '@/components/UserData'
 export default {
   components: {
     UserData
+  },
+
+  data() {
+    return {
+      user: {
+        firstName: 'makoto',
+        lastName: 'katayori'
+      }
+    }
   }
 }
 </script>
