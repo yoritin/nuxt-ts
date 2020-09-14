@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       v-model="drawer"
       fixed
       app
@@ -21,7 +21,12 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
+    <Sidebar
+      :drawer="drawer"
+      :fixed="fixed"
+      :items="items"
+    />
     <v-app-bar fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
@@ -38,8 +43,13 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import Sidebar from '~/components/Sidebar.vue'
+
 export default {
+  components: {
+    Sidebar
+  },
   data() {
     return {
       drawer: false,
